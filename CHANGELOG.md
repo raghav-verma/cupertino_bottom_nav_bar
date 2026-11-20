@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.2
+
+- Clarified the floating tab bar, drag-to-select behavior, and platform support
+  on the package page. Added the `tab-bar` topic.
+
 ## 0.2.1
 
 - Linked the public source repository on GitHub.

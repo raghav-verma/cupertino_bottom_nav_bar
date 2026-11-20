@@ -1,9 +1,9 @@
-# Liquid Glass Bottom Navigation for Flutter
+# Liquid Glass Bottom Navigation Bar for Flutter
 
-A controlled floating bottom-navigation dock with native UIKit glass on
-compatible iOS layouts and a Flutter renderer on Android. The caller owns
-selection, navigation, theme, labels and
-artwork. The package owns only local rendering, focus and gesture mechanics.
+A floating tab bar with drag-to-select for Flutter apps. It renders native
+UIKit Liquid Glass on compatible iOS 26+ layouts and uses shader refraction
+on Android. Tap a tab or drag across the bottom nav bar to request selection.
+Your app controls routes, the selected tab, and the bar's appearance.
 
 Native UIKit and Flutter rendering have distinct optics and motion.
 
