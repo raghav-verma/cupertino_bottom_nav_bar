@@ -1,0 +1,7 @@
+# Example checks use the same lint baseline as the package and application.
+analyzer:
+  exclude:
+    - build/**
+    - android/**
+    - ios/**
+include: package:flutter_lints/flutter.yaml

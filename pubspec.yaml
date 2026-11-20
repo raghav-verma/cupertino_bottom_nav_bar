@@ -1,0 +1,37 @@
+name: cupertino_bottom_nav_bar
+description: Liquid Glass bottom navigation bar for Flutter, with drag-to-select, native iOS glass on compatible layouts, and shader refraction on Android.
+version: 0.2.1
+repository: https://github.com/raghav-verma/cupertino_bottom_nav_bar
+homepage: https://pub.dev/documentation/cupertino_bottom_nav_bar/latest/
+
+topics:
+  - bottom-navigation
+  - navigation-bar
+  - liquid-glass
+  - glassmorphism
+
+environment:
+  sdk: ^3.13.2
+  flutter: '>=3.47.2'
+
+platforms:
+  android:
+  ios:
+
+dependencies:
+  flutter:
+    sdk: flutter
+  material_ui: ^1.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  shaders:
+    - shaders/glass_refraction.frag
+  plugin:
+    platforms:
+      ios:
+        pluginClass: GlassNavigationDockPlugin

@@ -1,0 +1,41 @@
+# Publish portable source, platform runners and documentation, not local builds.
+# These archive rules do not delete files or weaken source analysis.
+**/build/
+**/.dart_tool/
+**/.gradle/
+**/.idea/
+**/.swiftpm/
+**/.build/
+**/DerivedData/
+**/Pods/
+**/.symlinks/
+**/ephemeral/
+**/xcuserdata/
+**/local.properties
+**/key.properties
+**/*.keystore
+**/*.jks
+**/Generated.xcconfig
+**/flutter_export_environment.sh
+**/GeneratedPluginRegistrant.*
+**/.flutter-plugins*
+**/*.iml
+**/*.log
+**/*.apk
+**/*.aab
+**/*.symbols
+**/*.map.json
+**/*.dSYM/
+**/*.xcarchive/
+pubspec.lock
+# Flutter recreates omitted Gradle wrapper files from SDK artifacts before building.
+example/android/gradle/wrapper/gradle-wrapper.jar
+example/ios/Flutter/Flutter.podspec
+example/ios/Flutter/.last_build_id
+
+# Local development credentials
+.env
+.env.*
+**/*.pem
+**/*.p12
+**/*.mobileprovision
