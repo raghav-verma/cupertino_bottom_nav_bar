@@ -7,6 +7,14 @@ Your app controls routes, the selected tab, and the bar's appearance.
 
 Native UIKit and Flutter rendering have distinct optics and motion.
 
+[![Drag across four tabs to change selection in the Flutter renderer](https://raw.githubusercontent.com/raghav-verma/cupertino_bottom_nav_bar/main/docs/drag-to-select.gif)](https://pub.dev/packages/cupertino_bottom_nav_bar)
+
+[View on pub.dev](https://pub.dev/packages/cupertino_bottom_nav_bar) ·
+[Run the example](example/README.md)
+
+If the package works well for your app, a like on pub.dev helps other Flutter
+developers find it.
+
 ## Install and run
 
 ~~~sh
