@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.2.3
 
 - The Flutter renderer now keeps the selection capsule around the icon and
   caption. `selectionVerticalInset` and `heldSelectionVerticalInset` are capped

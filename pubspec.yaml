@@ -1,6 +1,6 @@
 name: cupertino_bottom_nav_bar
 description: Liquid Glass bottom navigation bar for Flutter. Build a floating tab bar with drag-to-select, native glass on compatible iOS 26+ layouts, and shader refraction on Android.
-version: 0.2.2
+version: 0.2.3
 repository: https://github.com/raghav-verma/cupertino_bottom_nav_bar
 homepage: https://pub.dev/documentation/cupertino_bottom_nav_bar/latest/
 

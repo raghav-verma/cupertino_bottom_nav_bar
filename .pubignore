@@ -32,3 +32,5 @@ pubspec.lock
 example/android/gradle/wrapper/gradle-wrapper.jar
 example/ios/Flutter/Flutter.podspec
 example/ios/Flutter/.last_build_id
+# README media loads from GitHub; pub.dev does not need it in the archive.
+docs/
