@@ -105,7 +105,10 @@ void main() {
     final target = tester.getRect(_target('A'));
     expect(target.width, 48);
     expect(_surface(tester).width, 54);
-    expect(tester.getSize(_capsule).width, 54);
+    // Gutter and content inset both reduce to 3, which leaves no outset: the
+    // capsule keeps the same 3-pixel gap from the ends as from top and bottom.
+    expect(tester.getSize(_capsule).width, 48);
+    expect(tester.getRect(_capsule).left - _surface(tester).left, 3);
     _within(tester.getRect(_capsule), _surface(tester));
     expect(tester.takeException(), isNull);
   });
@@ -125,9 +128,10 @@ void main() {
           );
           final surface = _surface(tester);
           final targetWidth = tester.getSize(_target(_labels.first)).width;
+          // The 8-pixel gutter less the 4-pixel content inset allows 4.
           expect(
             tester.getSize(_capsule).width,
-            closeTo(targetWidth + 2 * outset.clamp(0, 8), 0.001),
+            closeTo(targetWidth + 2 * outset.clamp(0, 4), 0.001),
           );
           for (final index in [0, 4]) {
             selected.value = index;

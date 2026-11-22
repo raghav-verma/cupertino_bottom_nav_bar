@@ -465,8 +465,8 @@ All numbers below are logical pixels unless noted.
 | `horizontalInset`, `topInset`, `bottomInset` | 16, 4, 8; outer placement/clearance. |
 | `contentInset`, `horizontalContentInset` | 4, null → `contentInset`; independent vertical/horizontal content padding. |
 | `labelGap`, `labelPadding`, `radius` | 2, 4, 999. |
-| `selectionHorizontalInset`, `selectionHorizontalOutset`, `selectionVerticalInset` | 2, 0, 0; resting capsule geometry, not target size. Outset is bounded by available gutter. |
-| `heldSelectionVerticalInset` | null → `selectionVerticalInset`; optional per-side visual inset at full feedback in fitting growing Flutter lenses. |
+| `selectionHorizontalInset`, `selectionHorizontalOutset`, `selectionVerticalInset` | 2, 0, 0; resting capsule geometry, not target size. Outset is capped at `horizontalContentInset − contentInset`, so an end capsule stays at least as far from the surface's ends as the row is from its top and bottom. Vertical inset is capped so the capsule always contains the icon area, label gap and caption; raise `actionHeight` for a larger inset. |
+| `heldSelectionVerticalInset` | null → `selectionVerticalInset`; optional per-side visual inset at full feedback in fitting growing Flutter lenses. Capped like `selectionVerticalInset`. |
 | `outlineWidth`, `shadowBlur`, `shadowOffset` | 0.75, 20, 2. |
 | `badgeMinWidth`, `badgeMinHeight`, `badgePadding` | 20, 16, 2. |
 | `badgeOffset`, `badgeHorizontalOffset` | 2, null → `badgeOffset`; horizontal placement is directional trailing, finite and nonnegative. |

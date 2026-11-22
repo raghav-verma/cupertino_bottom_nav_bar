@@ -1,5 +1,19 @@
 # Changelog
 
+## Unreleased
+
+- The Flutter renderer now keeps the selection capsule around the icon and
+  caption. `selectionVerticalInset` and `heldSelectionVerticalInset` are capped
+  at half the space the row has beyond its icon area, label gap and caption, so
+  a large inset can no longer cut through the caption. The dock's size does not
+  change. To keep a larger inset, raise `actionHeight`.
+- The Flutter renderer now keeps the capsule off the surface's ends.
+  `selectionHorizontalOutset` is capped at `horizontalContentInset` minus
+  `contentInset`, so an end capsule keeps at least the same gap from the ends
+  as the row has from the top and bottom. Previously an outset could fill the
+  whole gutter, leaving the capsule flush with a rounded end. Default styles
+  are unaffected. To keep an outset, widen `horizontalContentInset`.
+
 ## 0.2.2
 
 - Clarified the floating tab bar, drag-to-select behavior, and platform support

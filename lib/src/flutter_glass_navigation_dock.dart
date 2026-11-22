@@ -1544,11 +1544,12 @@ class _FlutterGlassNavigationDockState
           0.0,
           (height, size) => math.max(height, size.height),
         );
+        final contentHeight = widget.iconOnly
+            ? style.iconArea
+            : style.iconArea + style.labelGap + maxLabelHeight;
         final actionHeight = math.max(
           math.max(style.actionHeight, minimumTarget),
-          widget.iconOnly
-              ? style.iconArea
-              : style.iconArea + style.labelGap + maxLabelHeight,
+          contentHeight,
         );
         final surfaceHeight = actionHeight + contentInset * 2;
         final requestedBarScale = style.resolvedHeldBarScale;
@@ -1580,6 +1581,8 @@ class _FlutterGlassNavigationDockState
           widths: widths,
           viewportWidth: viewportWidth,
           actionHeight: actionHeight,
+          contentHeight: contentHeight,
+          contentInset: contentInset,
           direction: direction,
           usesScroll: usesScroll,
           horizontalContentInset: horizontalContentInset,
@@ -2440,20 +2443,34 @@ class _DockLayout {
     required this.widths,
     required this.viewportWidth,
     required this.actionHeight,
+    required double contentHeight,
+    required double contentInset,
     required this.direction,
     required this.usesScroll,
     required this.horizontalContentInset,
     required this.outerHorizontalInset,
     required AppGlassNavigationStyle style,
   }) {
+    // The capsule may reach into the side gutter, but never closer to the
+    // surface's ends than the row sits from its top and bottom. A capsule
+    // flush with a rounded end reads as clipped rather than selected.
     horizontalOutset = math.min(
       style.selectionHorizontalOutset,
-      horizontalContentInset,
+      math.max(0.0, horizontalContentInset - contentInset),
     );
-    verticalInset = math.min(style.selectionVerticalInset, actionHeight / 2);
+    // The centered icon and caption always stay inside the capsule. A larger
+    // inset would cut through the caption instead of framing it.
+    final maximumVerticalInset = math.max(
+      0.0,
+      (actionHeight - contentHeight) / 2,
+    );
+    verticalInset = math.min(
+      style.selectionVerticalInset,
+      maximumVerticalInset,
+    );
     heldVerticalInset = math.min(
       style.resolvedHeldSelectionVerticalInset,
-      actionHeight / 2,
+      maximumVerticalInset,
     );
     totalWidth = widths.fold(0.0, (sum, width) => sum + width);
     var logicalStart = 0.0;
